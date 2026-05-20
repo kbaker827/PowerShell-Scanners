@@ -7,10 +7,14 @@ Param(
 # The Collection object this cmdlet emits is really weird.
 # We have to assign it to a variable to get it to work properly in a pipeline.
 If ($WSUS) {
-    $GWU = Get-WindowsUpdate -WindowsUpdate
+    # No service flag: the Windows Update Agent uses the service configured by GPO (i.e. WSUS).
+    # -WindowsUpdate forces the online WU service ID and bypasses WSUS filtering.
+    $GWU = Get-WindowsUpdate
 }
 Else {
-    $GWU = Get-WindowsUpdate 
+    # -MicrosoftUpdate queries Microsoft's catalog directly, returning all available updates
+    # regardless of what the machine's WSUS policy would approve.
+    $GWU = Get-WindowsUpdate -MicrosoftUpdate
 }
 
 <#
