@@ -11,7 +11,7 @@ This scanner query wmi and looks for default printer and mapped printers
 ## Compatibility
 
 * **PDQ Inventory**: Yes
-* **PDQ Connect**: maybe
+* **PDQ Connect**: Yes
 
 ## Parameters
 
