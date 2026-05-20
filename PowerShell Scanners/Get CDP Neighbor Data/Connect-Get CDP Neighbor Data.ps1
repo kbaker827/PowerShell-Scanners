@@ -23,16 +23,16 @@ function Install-AndImportModule {
 
 Install-AndImportModule -ModuleName "PSDiscoveryProtocol"
 
-if ($PacketWaitDuration) {
+if ( $PacketWaitDuration ) {
     $CDPPacket = Invoke-DiscoveryProtocolCapture -Type CDP -Duration $PacketWaitDuration -Force
 } else {
     $CDPPacket = Invoke-DiscoveryProtocolCapture -Type CDP -Force
 }
 
-if ($CDPPacket) {
+if ( $CDPPacket ) {
     $Results = Get-DiscoveryProtocolData -Packet $CDPPacket
-    if ($Results) {
-        ForEach ($Result in $Results) {
+    if ( $Results ) {
+        ForEach ( $Result in $Results ) {
             [PSCustomObject]@{
                 "NeighborDeviceName" = $Result.Device
                 "NeighborDevicePort" = $Result.Port

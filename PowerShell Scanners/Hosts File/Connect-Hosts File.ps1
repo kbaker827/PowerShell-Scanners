@@ -16,7 +16,7 @@ Foreach ( $Line in $FileContents ) {
 
     $OriginalLine = $Line
     $Enabled = $true
-    $Count++
+    $Count ++
 
     if ( $Line.StartsWith('#') ) {
 
@@ -82,7 +82,7 @@ Foreach ( $Line in $FileContents ) {
 
 }
 
-if ($null -eq $hostsinfile) {
+if ( $null -eq $hostsinfile ) {
     [PSCustomObject]@{
         'HostName'  = $null
         'IPAddress' = $null
