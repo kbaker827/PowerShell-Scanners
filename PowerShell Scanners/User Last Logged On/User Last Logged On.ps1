@@ -61,8 +61,7 @@ Get-EventLog -LogName "Security" -newest 200 -InstanceId 4624 -ErrorAction "Sile
 # (common on machines where only logon types 3/5 are present, e.g. remote-only or VDI sessions)
 try {
     $queryUser = quser 2>&1
-}
-catch {
+} catch {
     $Results
     return
 }
